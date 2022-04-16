@@ -8,7 +8,7 @@ from arcacog.utils import int_to_place
 from cogs.queuecog.database import QueueDatabase, UserQueueEntry
 from cogs.queuecog.queues.base import Base
 
-from utils import get_queue_cog_file_path
+from cogs.queuecog.utils import get_queue_cog_file_path
 
 
 class Users(Base):
