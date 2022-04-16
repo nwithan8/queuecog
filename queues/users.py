@@ -5,8 +5,8 @@ from discord.ext.bridge import bridge_command, BridgeContext
 from arcacog import discord_decorators, discord_utils, SlashCommandGroup
 from arcacog.utils import int_to_place
 
-from cogs.queue.database import QueueDatabase, UserQueueEntry
-from cogs.queue.queues.base import Base
+from cogs.queuecog.database import QueueDatabase, UserQueueEntry
+from cogs.queuecog.queues.base import Base
 
 
 class Users(Base):

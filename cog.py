@@ -1,7 +1,7 @@
 from arcacog.utils import DynamicClassCreator
-from cogs.queue.configuration import Config
-from cogs.queue.queues.items import Items
-from cogs.queue.queues.users import Users
+from cogs.queuecog.configuration import Config
+from cogs.queuecog.queues.items import Items
+from cogs.queuecog.queues.users import Users
 
 queue_types_to_classes = {
     "user": Users,
