@@ -8,7 +8,7 @@ from arcacog import discord_decorators, discord_utils, SlashCommandGroup, ArcaFi
 from cogs.queuecog.database import QueueDatabase, ItemQueueEntry
 from cogs.queuecog.queues.base import Base
 
-from utils import get_queue_cog_file_path
+from cogs.queuecog.utils import get_queue_cog_file_path
 
 
 class Items(Base):
