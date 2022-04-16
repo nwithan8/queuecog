@@ -8,7 +8,8 @@ class Base(ArcaCog):
     queue_group = SlashCommandGroup(name="queue", description="Commands related to general queuing.")
 
     def __init__(self, bot):
-        super().__init__(bot=bot, config=ArcaCogConfig(folder="queuecog", name="queues", config_files=["config.yaml"]))
+        super().__init__(bot=bot, config=ArcaCogConfig(cog_name="queuecog", cog_title="queues",
+                                                       config_files=["config.yaml"]))
 
     @queue_group.command(name="ping")
     async def queue_ping(self, ctx: Context):

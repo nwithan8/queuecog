@@ -8,13 +8,16 @@ from arcacog.utils import int_to_place
 from cogs.queuecog.database import QueueDatabase, UserQueueEntry
 from cogs.queuecog.queues.base import Base
 
+from utils import get_queue_cog_file_path
+
 
 class Users(Base):
     users_group = SlashCommandGroup(name="user-queue", description="Commands related to queuing users.")
 
     def __init__(self, bot):
         super().__init__(bot=bot)
-        self.users_queue_database = QueueDatabase(sqlite_file="queue.db", table_schemas=[UserQueueEntry])
+        self.users_queue_database = QueueDatabase(
+            sqlite_file=get_queue_cog_file_path(file_path="queue.db"), table_schemas=[UserQueueEntry])
 
     @users_group.command(name="add")
     async def queue_add(self, ctx: BridgeContext):
@@ -85,7 +88,9 @@ class Users(Base):
         """
         Export the queue to a CSV.
         """
-        if not self.users_queue_database.export_user_queue_to_csv("user_queue.csv"):
+        if not self.users_queue_database.export_user_queue_to_csv(
+                get_queue_cog_file_path(file_path="user_queue.csv")):
             await discord_utils.send_error(ctx=ctx)
             return
-        await ctx.send(file=discord.File("user_queue.csv"))
+        await ctx.send(file=discord.File(
+            get_queue_cog_file_path(file_path="user_queue.csv")))
